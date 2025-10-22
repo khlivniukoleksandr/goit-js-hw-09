@@ -41,8 +41,6 @@ form.addEventListener('input', event => {
   saveInLS(LS_KEY, formData);
 });
 
-console.log(formData);
-
 form.addEventListener('submit', event => {
   event.preventDefault();
 
@@ -52,8 +50,9 @@ form.addEventListener('submit', event => {
     alert('Fill please all fields');
     return;
   }
-  console.log(`Email: ${email}, Message: ${message}`);
+  console.log(formData);
   form.reset();
   formData.email = '';
   formData.message = '';
+  localStorage.removeItem(LS_KEY);
 });
